@@ -123,4 +123,6 @@ console.log(getDistinctValues(list2));
 const objectList8 = {"a": 1, "b": 7, "c": 3, "d": 14};
 sum8 = objectList8["a"] + objectList8["b"] + objectList8["c"] - objectList8["d"];
 
+
 console.log(sum8);
+console.assert(evaluateExpression("a + b + c - d", {a: 1, b: 7, c: 3, d: 14}) === -3);
