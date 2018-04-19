@@ -71,7 +71,7 @@ console.log(getRemainder3(10,3));
 
 // 6) Return distinct values from a list including duplicates (i.e. "1 3 5 3 7 3 1 1 5" -> "1 3 5 7")
 let list1 = "1 3 9 5 3 7 3 1 1 8 5"
-let list2 = "Bob, Edwin, Morgan, Mike, Bob, Stan, Kavitha, Declan, Kavitha, David, Morgan, Bob"
+let list2 = "Bob, Edwin, Morgan, Mike, Bob, Stan, Kavitha, Declan, Kavitha, David, Morgan, Bob,"
 function getDistinctValues(list){
     let distinctVals = [];
     let valueList = list.split(" ");
@@ -94,30 +94,33 @@ console.log(getDistinctValues(list2));
 
 
 // 7) Return distinct values and their counts (i.e. the list above becomes "1(3) 3(3) 5(2) 7(1)")
-    // let list3 = "1 3 9 5 3 7 3 1 1 8 5"
+    let list3 = "1, 3, 9, 5, 3, 7, 3, 1, 1, 8, 5"
     let list4 = "Bob, Edwin, Morgan, Mike, Bob, Stan, Kavitha, Declan, Kavitha, David, Morgan, Bob"
     function getDistinctValues7(list){
         let distinctVals7 = {};
-        let valueList7 = list.split(" ");
-        console.log(list);
-        console.log(valueList7);
+        let valueList7 = list.split(", ");
+        // console.log(list);
+        // console.log(valueList7);
         
         for (let i=0; i<valueList7.length; i++){
-            if (distinctVals7[valueList7[i]] !== null){
-                distinctVals7[valueList7[i]] += 1;               
+            if (distinctVals7[valueList7[i]] == null){
+                distinctVals7[valueList7[i]] = 1;               
             }else{
-                distinctVals7[valueList7[i]] = 1;
+                distinctVals7[valueList7[i]] += 1;
             } 
-        }
-        console.log(distinctVals7)
-        let distVals7 = distinctVals7.values;
-        return distVals7;
+        }        // console.log(distinctVals7)        return distinctVals7;
+        return(distinctVals7);
     }
     
-    // console.log(getDistinctValues7(list3));
+    
+    console.log(getDistinctValues7(list3));
     console.log(getDistinctValues7(list4));
  
 
 
 
 // 8) Given a string of expressions (only variables, +, and -) and an object describing a set of variable/value pairs like {a: 1, b: 7, c: 3, d: 14}, return the result of the expression ("a + b+c -d" would be -3).
+const objectList8 = {"a": 1, "b": 7, "c": 3, "d": 14};
+sum8 = objectList8["a"] + objectList8["b"] + objectList8["c"] - objectList8["d"];
+
+console.log(sum8);
