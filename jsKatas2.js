@@ -111,18 +111,47 @@ console.log(getDistinctValues(list2));
         }        // console.log(distinctVals7)        return distinctVals7;
         return(distinctVals7);
     }
-    
-    
     console.log(getDistinctValues7(list3));
     console.log(getDistinctValues7(list4));
  
 
-
-
-// 8) Given a string of expressions (only variables, +, and -) and an object describing a set of variable/value pairs like {a: 1, b: 7, c: 3, d: 14}, return the result of the expression ("a + b+c -d" would be -3).
+// 8) Given a string of expressions (only variables, +, and -) and an object describing a set of variable/value pairs like {a: 1, b: 7, c: 3, d: 14}, return the result of the expression ("a + b + c - d" would be -3).
 const objectList8 = {"a": 1, "b": 7, "c": 3, "d": 14};
-sum8 = objectList8["a"] + objectList8["b"] + objectList8["c"] - objectList8["d"];
 
+function evaluateExpression (expressionString, valuesObject) {
+    let total = 0;
+    let currentOperator = "+";
+    let currentValue;
 
-console.log(sum8);
+    for (let currentCharacter of expressionString) {
+        //if the currentCharacter is a space, then "continue"
+        if (currentCharacter === " ") {
+            continue;
+        
+        // else if the currentCharacter is either + or -, then update currentOperator
+        }else if (currentCharacter === "+" || currentCharacter === "-"){
+                currentOperator = currentCharacter;
+        
+        // else if the currentCharacter is something in the valuesObject, then update nextValue
+        }else if (valuesObject.includes(currentCharacter)){
+            currentValue = valuesObject.currentCharacter.value
+        }
+
+        // if currentValue is anything other than null then check the currentOperator to decide whether to do addition or subtraction
+        // and then do that and update the total with the result of total and the currentValue
+        if (currentValue !== "null"){
+            if (currentOperator === "+"){
+                total = total + currentValue;
+
+            }else if (currentOperator === "-"){
+                total = total + currentValue;
+            }
+        }
+        // and finally set nextValue to null
+        currentValue = null;
+    }
+
+    return total;
+}
+
 console.assert(evaluateExpression("a + b + c - d", {a: 1, b: 7, c: 3, d: 14}) === -3);
